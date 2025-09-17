@@ -18,7 +18,7 @@ The environment uses:
 ## Quick Start
 1. **Clone the repository:**
    ```bash
-   git clone [URL]
+   git clone https://github.com/0Nulliu/rust_dev_environment
    cd RUST_CITY  ("A very creative name, I Know.")
    ```
 2. **Prepare SSH: (step needs to be repeated on every access for safety)**
@@ -31,7 +31,6 @@ The environment uses:
 3. **Build and start (only need to run once):**
    ```bash
    docker-compose up -d --build
-   ```
    ```
 4. **Enter the Docker:**
    ```bash
