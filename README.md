@@ -16,9 +16,9 @@ The environment uses:
 - SSH Key for git authentication
 
 ## Quick Start
-1. **Clone the repository:**
+1. **Clone the repository (with submodule for neovim config):**
    ```bash
-   git clone https://github.com/0Nulliu/rust_dev_environment
+   git clone --recurse-submodules https://github.com/0Nulliu/rust_dev_environment
    cd RUST_CITY  ("A very creative name, I Know.")
    ```
 2. **Prepare SSH: (step needs to be repeated on every access for safety)**
