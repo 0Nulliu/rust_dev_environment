@@ -1,0 +1,15 @@
+# Ignore project-specific state and user files
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore Docker Compose state
+# This is important to allow others to use their own local data
+postgres_data/
+
+# Ignore Rust build artifacts if any Rust projects are in the root
+target/
+Cargo.lock
+
+# Ignore secrets or local environment variables
+.env

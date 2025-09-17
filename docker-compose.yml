@@ -1,0 +1,39 @@
+# This is the corrected docker-compose.yml file
+
+services:
+  # This is our main development service
+  dev:
+    build: .
+    tty: true
+    volumes:
+      # Mounts the entire project directory into the container
+      - .:/home/devuser/project
+
+      # THE DEFINITIVE FIX:
+      # This uses the full, unambiguous ABSOLUTE PATH to your Neovim configuration on the host.
+      # This solves the issue where the relative path was not being found correctly.
+      - /home/dieuman/.config/nvim/labsASSEMBLY/RUST_CITY/.nvim.conf:/home/devuser/.config/nvim
+
+      # This forwards your SSH agent for secure Git authentication
+      - $SSH_AUTH_SOCK:/ssh-agent
+    environment:
+      # This tells programs inside the container where to find the mounted SSH socket
+      - SSH_AUTH_SOCK=/ssh-agent
+
+  # This is our PostgreSQL database service
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=myuser
+      - POSTGRES_PASSWORD=mypassword
+    ports:
+      # Expose the DB port to your local machine for GUI tools if needed
+      - '5432:5432'
+    volumes:
+      # Persist the database data even if the container is removed
+      - postgres_data:/var/lib/postgresql/data
+
+# This defines the named volume used by the database service
+volumes:
+  postgres_data:
