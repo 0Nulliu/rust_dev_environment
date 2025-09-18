@@ -9,10 +9,10 @@ services:
       # Mounts the entire project directory into the container
       - .:/home/devuser/project
 
-      # THE DEFINITIVE FIX:
+      # THE DEFINITIVE  FIX:
       # This uses the full, unambiguous ABSOLUTE PATH to your Neovim configuration on the host.
       # This solves the issue where the relative path was not being found correctly.
-      - /home/dieuman/.config/nvim/labsASSEMBLY/RUST_CITY/.nvim.conf:/home/devuser/.config/nvim
+      - ./.nvim.conf:/home/devuser/.config/nvim
 
       # This forwards your SSH agent for secure Git authentication
       - $SSH_AUTH_SOCK:/ssh-agent
