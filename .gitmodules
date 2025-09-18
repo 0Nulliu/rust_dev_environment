@@ -1,0 +1,3 @@
+[submodule ".nvim.conf"]
+	path = .nvim.conf
+	url = git@github.com:0Nulliu/starter.git
